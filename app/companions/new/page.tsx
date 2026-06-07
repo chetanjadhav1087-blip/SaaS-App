@@ -3,7 +3,7 @@ import React from 'react'
 function page() {
   return (
     <div>
-      New Companian
+      New Companions
     </div>
   )
 }
