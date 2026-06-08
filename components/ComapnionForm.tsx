@@ -72,12 +72,7 @@ function ComapnionForm() {
 
     return (
         <Card className="w-full sm:max-w-md">
-            <CardHeader>
-                <CardTitle>Bug Report</CardTitle>
-                <CardDescription>
-                    Help us improve by reporting bugs you encounter.
-                </CardDescription>
-            </CardHeader>
+            
             <CardContent>
                 <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
                     <FieldGroup>
