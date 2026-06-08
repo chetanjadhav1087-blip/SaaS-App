@@ -41,6 +41,8 @@ import { Input } from "@/components/ui/input"
 
 import { Button } from "@/components/ui/button"
 import { subjects } from "@/constants"
+import { createComapnion } from "@/lib/actions/companion.actions"
+import { redirect } from "next/navigation"
 
 const formSchema = z.object({
     name: z.string().min(1, { message: 'Companion is required' }),
@@ -66,8 +68,15 @@ function ComapnionForm() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        const companion = await createComapnion(values)
+
+        if(companion){
+            redirect(`/companions/${companion.id}`);
+        } else {
+            console.log("Failed to create companion");
+            redirect('/');
+        }
     }
 
     return (
@@ -260,11 +269,13 @@ function ComapnionForm() {
                             render={({ field, fieldState }) => (
                                 <Field data-invalid={fieldState.invalid}>
                                     <FieldLabel htmlFor="form-rhf-demo-title">
-                                        Companion Name
+                                        Estimated session duration in minutes 
                                     </FieldLabel>
                                     <Input
                                         {...field}
                                         id="form-rhf-demo-title"
+                                        value={field.value}
+                                        onChange={(e) => field.onChange(e.target.valueAsNumber)}
                                         aria-invalid={fieldState.invalid}
                                         placeholder="15"
                                         autoComplete="off"

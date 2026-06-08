@@ -1,7 +1,11 @@
 import ComapnionForm from '@/components/ComapnionForm'
-import React from 'react'
+import { auth } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation';
 
-function page() {
+async function NewCompanion() {
+
+  const {userId} = await auth();
+  if(!userId) redirect('sign-in');
   return (
     <main className='main-lg:w1/3 min-md:w-2/3 items-center justify-center'>
       <article className='w-full gap-4 flex flex-col'>
@@ -12,4 +16,4 @@ function page() {
   )
 }
 
-export default page
+export default NewCompanion
