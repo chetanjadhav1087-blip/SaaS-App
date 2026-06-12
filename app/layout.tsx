@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "AI Tutor",
   description: "Real-time AI Teaching Platform",
    icons: {
-    icon: "/images/AI_Tutor_logo.png",
+    icon: "/images/AI_Tutor_Logo.png",
   },
 };
 
