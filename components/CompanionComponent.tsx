@@ -133,7 +133,7 @@ const CompanionComponent = ({companionId, subject, name, topic, userName, style,
                     {isMuted ? 'Turn on microphone' : 'Turn off microphhone'}
                   </p>
                 </button>
-                <button className={cn('rounded-gl py-2 cursor-pointer transition-colors w-full text-white',
+                <button className={cn('rounded-lg py-2 cursor-pointer transition-colors w-full text-white',
                   callStatus === CallStatus.ACTIVE ? 'bg-red-700' : 'bg-primary', 
                   callStatus === CallStatus.CONNECTING && 'animate-pulse')} onClick={callStatus === CallStatus.ACTIVE ? handelDisconnect : handleCall}>
                   {callStatus === CallStatus.ACTIVE ? 'End Session' : 

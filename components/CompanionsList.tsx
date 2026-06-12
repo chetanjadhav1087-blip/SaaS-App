@@ -19,6 +19,9 @@ interface CompanionsListProps{
 }
 
 const CompanionsList = ({title, companions, classNames}: CompanionsListProps) => {
+  const uniqueCompanions = Array.from(
+  new Map(companions?.map(companion => [companion.id, companion])).values()
+);
   return (
     <article className={cn('companion-list', classNames)}>
       <h2 className='font-blod text-3xl'>{title}</h2>
@@ -33,7 +36,7 @@ const CompanionsList = ({title, companions, classNames}: CompanionsListProps) =>
         </TableHeader>
 
         <TableBody>
-          {companions?.map(({id, subject, name, topic, duration}) => (
+          {uniqueCompanions?.map(({id, subject, name, topic, duration}) => (
             <TableRow key={id}>
               <TableCell>
                 <Link href={`/companions/${id}`}>

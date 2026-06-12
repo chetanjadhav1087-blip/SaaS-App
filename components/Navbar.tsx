@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link href='/'>
         <div className='flex items-center gap-2.5 cursor-pointer'>
             <Image 
-                src='/images/logo.svg' 
+                src='/images/AI_Tutor_logo.png' 
                 alt='logo' 
                 width={64} 
                 height={44} 

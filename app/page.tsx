@@ -38,8 +38,8 @@ const Page = async () => {
           companions = {recentSessionsCompanions}
           classNames = 'w-2/3 max-lg:w-full'
         />
-      </section>
         <Cta />
+      </section>
     </main>
   )
 }
