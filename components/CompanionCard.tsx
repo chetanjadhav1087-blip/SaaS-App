@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
 
 interface CompanionCardProps {
     id: string;
@@ -15,7 +14,7 @@ function CompanionCard({id, name, topic, subject, duration, color}:
   return (
     <article className='companion-card' style={{backgroundColor: color}}>
       <div className='flex justify-between items-center'>
-        <div className='subbject-badge'>{subject}</div>
+        <div className='subbject-badge capitalize'>{subject}</div>
         <button className='companion-boolmark bg-black p-3 rounded-[50%]'>
             <Image
                 src='/icons/bookmark.svg' 
